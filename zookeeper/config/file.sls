@@ -30,7 +30,7 @@ zookeeper-config-file-file-managed:
 {% if zookeeper.zookeeperproperties['customservers'] %}
 zookeeper-zookeepermyid-file-file-managed:
   file.managed:
-    - name: {{ zookeeper.pkg.installdir }}/zookeeper-{{ zookeeper.pkg.version }}/{{ zookeeper.zookeeperproperties.dataDir | regex_replace('[(.*?)]','') }}/myid
+    - name: {{ zookeeper.zookeeperproperties.dataDir | regex_replace('[(.*?)]','') }}/myid
     - source: {{ files_switch(['zookeepermyid.tmpl.jinja'],
                               lookup='zookeeper-zookeepermyid-file-file-managed'
                  )

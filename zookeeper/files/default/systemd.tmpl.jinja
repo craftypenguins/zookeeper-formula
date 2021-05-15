@@ -9,6 +9,8 @@ Type=forking
 WorkingDirectory={{ zookeeper.pkg.installdir }}/zookeeper-{{ zookeeper.pkg.version }}
 User={{ zookeeper.systemdconfig.user }}
 Group={{ zookeeper.systemdconfig.group }}
+Environment='ZOO_LOG_DIR=/var/log/zookeeper'
+Environment='ZOO_LOG4J_PROP=INFO,ROLLINGFILE'
 ExecStart={{ zookeeper.pkg.installdir }}/zookeeper-{{ zookeeper.pkg.version }}/bin/zkServer.sh start {{ zookeeper.pkg.installdir }}/zookeeper-{{ zookeeper.pkg.version }}/conf/zoo.cfg
 ExecStop={{ zookeeper.pkg.installdir }}/zookeeper-{{ zookeeper.pkg.version }}/bin/zkServer.sh stop {{ zookeeper.pkg.installdir }}/zookeeper-{{ zookeeper.pkg.version }}/conf/zoo.cfg
 ExecReload={{ zookeeper.pkg.installdir }}/zookeeper-{{ zookeeper.pkg.version }}/bin/zkServer.sh restart {{ zookeeper.pkg.installdir }}/zookeeper-{{ zookeeper.pkg.version }}/conf/zoo.cfg

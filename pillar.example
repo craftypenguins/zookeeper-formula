@@ -38,6 +38,7 @@ zookeeper:
     customservers:
       server1:
         zookeeper_myid: 1
-        hostname: 127.0.0.1
+        # the hostname must match the server hostname
+        hostname: STAG-NY3-ZK
         zookeeper_peerPorts: '2888:3888'
         
