@@ -16,6 +16,7 @@ zookeeper:
   systemdconfig:
     user: root
     group: root
+    # Next two values are currently unused
     limitnofile: 50000
     limitnproc: 10000
 
@@ -30,6 +31,9 @@ zookeeper:
     clientPort: 2181
     initLimit: 5
     syncLimit: 2
+    4lwCommandsWhitelist:
+      - ruok
+      - stat
 
     customservers: ''
 

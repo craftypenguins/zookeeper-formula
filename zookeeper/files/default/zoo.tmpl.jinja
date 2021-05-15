@@ -15,3 +15,10 @@ server.{{ args.zookeeper_myid }}={{ args.hostname }}:{{ args.zookeeper_peerPorts
 {%- endfor %}
 {% endif %}
 
+# Whitelisted four letter zookeeper commands
+{%- if ['zookeeper.zookeeperproperties.4lwCommandsWhitelist'] %}
+4lw.commands.whitelist={%- for command in zookeeper.zookeeperproperties['4lwCommandsWhitelist'] %}
+{{ command }}
+{%- if not loop.last %},{% endif %}
+{%- endfor %}
+{% endif %}
